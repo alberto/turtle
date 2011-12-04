@@ -7,8 +7,12 @@ class CommandParser
     amount = Integer(command_parts[1])
     if command == "FD"
       MoveCommand.new(amount)
+    elsif command == "BK"
+      MoveBackCommand.new(amount)
     elsif command == "RT"
       RotateCommand.new(amount)
+    elsif command == "LT"
+      RotateCommand.new(amount * -1)
     elsif command == "REPEAT"
       RepeatCommand.new(amount, parse_commands_in(command_parts[3..-2]))
     else

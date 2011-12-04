@@ -13,6 +13,16 @@ class MoveCommand
   end
 end
 
+class MoveBackCommand
+  def initialize distance
+    @commands = [RotateCommand.new(180), MoveCommand.new(distance), RotateCommand.new(180)]
+  end
+
+  def execute turtle
+    @commands.each { |command| command.execute turtle }
+  end
+end
+
 class RotateCommand
   def initialize degrees
     @degrees = degrees

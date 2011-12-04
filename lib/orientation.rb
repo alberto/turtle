@@ -4,7 +4,7 @@ class Orientation
   end
 
   def add degrees
-    @degrees = (@degrees + degrees) % 360
+    @degrees = (@degrees + degrees + 360) % 360
   end
 
   def x_vector
